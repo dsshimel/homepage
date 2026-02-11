@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Simple Synth</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #1a1a2e;
+        }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+<link rel="modulepreload" href="/synth/synth-web-5f1dc813144b6a9b.js" crossorigin="anonymous" integrity="sha384-S4v/qIyDwbOCdfDFNR4fByMoM6gxaxbDildPlHEul9dK/o5xFkZOoS56uzEH6tJF"><link rel="preload" href="/synth/synth-web-5f1dc813144b6a9b_bg.wasm" crossorigin="anonymous" integrity="sha384-AT9glMXbAMHOXJgDWSfXRj32MVi0j2yymToM6vpUpkkWdYgwfJ4CX/XFOatELnN1" as="fetch" type="application/wasm"></head>
+<body>
+    <canvas id="synth-canvas"></canvas>
+    
+<script type="module">
+import init, * as bindings from '/synth/synth-web-5f1dc813144b6a9b.js';
+const wasm = await init({ module_or_path: '/synth/synth-web-5f1dc813144b6a9b_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    
+    
+</body>
+</html>

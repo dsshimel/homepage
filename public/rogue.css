@@ -1,0 +1,258 @@
+/* ===========================================
+   ROGUE (IBM PC) THEME
+   Black background, amber text, box-drawing
+   borders, monospace CRT aesthetic
+   =========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+
+/* CRT scanline + glow effect */
+@keyframes flicker {
+  0%   { opacity: 0.97; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #000000;
+  color: #cc8800;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  min-height: 100%;
+  animation: flicker 4s infinite;
+  position: relative;
+}
+
+/* Scanline overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 9999;
+}
+
+/* Subtle text glow like a CRT phosphor */
+body {
+  text-shadow: 0 0 4px rgba(204, 136, 0, 0.3);
+}
+
+/* ---- Main container: a "room" ---- */
+.room {
+  border: 3px solid #b87333;
+  padding: 20px 24px;
+  max-width: 700px;
+  margin: 20px auto;
+  position: relative;
+  background: #000;
+  z-index: 1;
+}
+
+/* Double-border room effect like Rogue dungeon walls */
+.room::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border: 1px solid #b87333;
+  pointer-events: none;
+}
+
+/* ---- Status bar at bottom ---- */
+.status-bar {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 8px 4px;
+  color: #cccc00;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 6px rgba(204, 204, 0, 0.4);
+  position: relative;
+  z-index: 1;
+  background: #000;
+}
+
+/* ---- Typography ---- */
+h1, h2, h3, h4 {
+  color: #cccc00;
+  text-shadow: 0 0 6px rgba(204, 204, 0, 0.4);
+  font-weight: 700;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #664400;
+  padding-bottom: 4px;
+}
+
+h3 {
+  font-size: 1rem;
+  color: #cc8800;
+}
+
+p {
+  margin: 0.8em 0;
+  color: #cc8800;
+}
+
+/* ---- Links: like items on the dungeon floor ---- */
+a {
+  color: #44cc44;
+  text-decoration: none;
+  text-shadow: 0 0 4px rgba(68, 204, 68, 0.3);
+}
+
+a:hover {
+  color: #88ff88;
+  text-shadow: 0 0 8px rgba(136, 255, 136, 0.5);
+}
+
+a:visited {
+  color: #338833;
+}
+
+a::before {
+  content: '> ';
+  color: #666600;
+}
+
+/* ---- Lists ---- */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5em 0;
+}
+
+li {
+  padding: 4px 0;
+  margin: 2px 0;
+}
+
+/* Green floor dots between list items */
+li + li {
+  border-top: 1px dotted #336633;
+}
+
+/* ---- Images ---- */
+img {
+  border: 2px solid #b87333;
+  display: block;
+  margin: 12px 0;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---- Code/pre ---- */
+code {
+  color: #cccc00;
+  background: #1a1a00;
+  padding: 1px 4px;
+}
+
+/* ---- Player marker: the @ symbol decoration ---- */
+.player-marker {
+  color: #cccc00;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* ---- Corridor connector between rooms ---- */
+.corridor {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.corridor::before {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 20px;
+  background: #666644;
+  margin: 0 auto;
+}
+
+/* ---- Back link styling ---- */
+a.back-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #cccc00;
+}
+
+a.back-link::before {
+  content: '< ';
+}
+
+/* ---- Bold / italic spans ---- */
+.bold {
+  color: #cccc00;
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+  color: #aa7700;
+}
+
+/* ---- Section labels (like Rogue level info) ---- */
+.section-label {
+  color: #666600;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin: 1em 0 0.3em;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .room {
+    padding: 14px 16px;
+    margin: 10px auto;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+}
