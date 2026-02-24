@@ -17,13 +17,13 @@
             height: 100% !important;
         }
     </style>
-<link rel="modulepreload" href="/synth/synth-web-5f1dc813144b6a9b.js" crossorigin="anonymous" integrity="sha384-S4v/qIyDwbOCdfDFNR4fByMoM6gxaxbDildPlHEul9dK/o5xFkZOoS56uzEH6tJF"><link rel="preload" href="/synth/synth-web-5f1dc813144b6a9b_bg.wasm" crossorigin="anonymous" integrity="sha384-AT9glMXbAMHOXJgDWSfXRj32MVi0j2yymToM6vpUpkkWdYgwfJ4CX/XFOatELnN1" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/synth/synth-web-96dc6cad25b736b2.js" crossorigin="anonymous" integrity="sha384-ZVlLdE/HNckPjy4bn7O5NYjEgWKO2i2yBbo418ztIuE3XMdn8WAgY/JNmw75/DGj"><link rel="preload" href="/synth/synth-web-96dc6cad25b736b2_bg.wasm" crossorigin="anonymous" integrity="sha384-D6HLaATP9+3CYggTb/LUtfCUOM9/UmA5vcdnfouPzFkubBkufVmedX2DWfqeYGvQ" as="fetch" type="application/wasm"></head>
 <body>
     <canvas id="synth-canvas"></canvas>
     
 <script type="module">
-import init, * as bindings from '/synth/synth-web-5f1dc813144b6a9b.js';
-const wasm = await init({ module_or_path: '/synth/synth-web-5f1dc813144b6a9b_bg.wasm' });
+import init, * as bindings from '/synth/synth-web-96dc6cad25b736b2.js';
+const wasm = await init({ module_or_path: '/synth/synth-web-96dc6cad25b736b2_bg.wasm' });
 
 
 window.wasmBindings = bindings;
